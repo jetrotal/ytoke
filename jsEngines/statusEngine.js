@@ -8,7 +8,7 @@ function init() {
 
     content = document.getElementById("content");
 
-    if (txtStatus == " - " ) txtStatus = "OPENOKÊ v0.5",
+    if (txtStatus == " - ") txtStatus = "YTOKÊ v0.5",
         txtColor = "white";
 
     content.innerHTML = txtStatus;

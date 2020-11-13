@@ -56,16 +56,16 @@
 
             obj = {
                 data: row.artist.replace(/ *\([^)]*\) */g, "") + ' - ' + row.name.replace(/ *\([^)]*\) */g, ""),
-                value: 'artist' === currentModule ? row.name.replace(/ *\([^)]*\) */g, "") :  row.name.replace(/ *\([^)]*\) */g, ""),
+                value: 'artist' === currentModule ? row.name.replace(/ *\([^)]*\) */g, "") : row.name.replace(/ *\([^)]*\) */g, ""),
                 category: currentModule.replace(/ *\([^)]*\) */g, ""),
                 artist: row.artist.replace(/ *\([^)]*\) */g, ""),
                 musicTitle: row.name.replace(/ *\([^)]*\) */g, ""),
                 lastfm: row
             };
 
-           // obj.label = '<div class="cover"><img src="' + image +
-             //   '"/></div> <div class="description"><span>' + obj.value +
-               // '</span></div>';
+            // obj.label = '<div class="cover"><img src="' + image +
+            //   '"/></div> <div class="description"><span>' + obj.value +
+            // '</span></div>';
 
 
             return obj;
@@ -123,7 +123,7 @@
      * Make a set of requests to Last.fm API.
      */
     function makeRequestSet(request, response) {
-        var baseUrl = 'http://ws.audioscrobbler.com/2.0/',
+        var baseUrl = 'https://ws.audioscrobbler.com/2.0/',
             key,
             optionSet;
 
@@ -132,7 +132,7 @@
                 globalResponse = response;
                 optionSet = {
                     method: moduleList[key] + ".search",
-                    parent:parent,
+                    parent: parent,
                     api_key: apiKey,
                     limit: 18,
                     format: 'json'
@@ -180,7 +180,7 @@
      * Provide Last.fm autocomplete feature to the target input.
      */
     $.fn.lfmComplete = function(options) {
-        
+
         var acOption = {
             messages: {
                 noResults: ''
@@ -212,7 +212,7 @@
 
         if (null !== options && undefined !== options.parent && 'string' === typeof options.parent) {
             parent = options.parent;
-            
+
         }
 
         this.catcomplete(acOption);

@@ -56,16 +56,16 @@
 
             obj = {
                 data: row.artist.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, '') + ' - ' + row.name.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''),
-                value: 'artist' === currentModule ? row.name.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, '') :  row.name.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''),
+                value: 'artist' === currentModule ? row.name.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, '') : row.name.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''),
                 category: currentModule.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''),
                 artist: row.artist.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''),
                 musicTitle: row.name.replace(/ *\([^)]*\) */g, "").replace(/ *\[[^\]]*]/, ''),
                 lastfm: row
             };
 
-           // obj.label = '<div class="cover"><img src="' + image +
-             //   '"/></div> <div class="description"><span>' + obj.value +
-               // '</span></div>';
+            // obj.label = '<div class="cover"><img src="' + image +
+            //   '"/></div> <div class="description"><span>' + obj.value +
+            // '</span></div>';
 
 
             return obj;
@@ -123,7 +123,7 @@
      * Make a set of requests to Last.fm API.
      */
     function makeRequestSet(request, response) {
-        var baseUrl = 'http://ws.audioscrobbler.com/2.0/',
+        var baseUrl = 'https://ws.audioscrobbler.com/2.0/',
             key,
             optionSet;
 
@@ -132,13 +132,13 @@
                 globalResponse = response;
                 optionSet = {
                     method: moduleList[key] + ".search",
-                    parent:parent,
+                    parent: parent,
                     api_key: apiKey,
                     limit: 18,
                     format: 'json'
                 };
-       
-                if(parent)optionSet[moduleList[key]] = document.getElementById(optionSet.parent).value+" " +request.term
+
+                if (parent) optionSet[moduleList[key]] = document.getElementById(optionSet.parent).value + " " + request.term
                 else optionSet[moduleList[key]] = request.term;
                 $.get(baseUrl, optionSet, callbackAutocomplete, 'json').error(acError);
             }
@@ -157,11 +157,11 @@
             $.each(items, function(index, item) {
                 if (item.category !== currentCategory) {
                     var t = item.category.charAt(0).toUpperCase() + item.category.slice(1) + 's';
-                    
+
                     currentCategory = item.category;
                 }
                 that._renderItemData(ul, item);
-                
+
             });
             ul.append("<li class='ui-autocomplete-category suggestions' style='text-aling:center;margin-top:25px;margin-right:5px'>" + "Suggestions" + "</li>");
         }
@@ -184,7 +184,7 @@
      * Provide Last.fm autocomplete feature to the target input.
      */
     $.fn.lfmComplete2 = function(options) {
-        
+
         var acOption = {
             messages: {
                 noResults: ''
@@ -216,7 +216,7 @@
 
         if (null !== options && undefined !== options.parent && 'string' === typeof options.parent) {
             parent = options.parent;
-            
+
         }
 
         this.catcomplete(acOption);

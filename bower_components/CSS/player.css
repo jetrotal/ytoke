@@ -1,0 +1,12 @@
+#player {
+  z-index: 1;
+}
+
+#content {
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  left: 0%;
+  text-align: center;
+}

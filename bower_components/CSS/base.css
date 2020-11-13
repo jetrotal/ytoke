@@ -1,0 +1,97 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-image: url("../../img/bg.gif");
+}
+
+#topper {
+    width: 101%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    border: none;
+    overflow: hidden;
+}
+
+#divA {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align-last: center;
+    margin: 11px;
+    z-index: 999999;
+    border: none;
+}
+
+#bandInput {
+    border: none;
+    height: 20px;
+    vertical-align: super;
+}
+
+#songInput {
+    border: none;
+    height: 20px;
+    vertical-align: super;
+}
+
+#searcher {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: blanchedalmond;
+}
+
+#stopper {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: blanchedalmond;
+}
+
+#divB {
+    z-index: 1;
+    background-color: black;
+    opacity: 70%;
+    position: absolute;
+    top: 0px;
+    width: 101%;
+    height: 50px;
+    text-align-last: center;
+}
+
+#iFrame {
+    width: 101%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    border: none;
+    overflow: hidden;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    opacity: 70%;
+    height: 50px;
+    color: white;
+    text-align-last: center;
+}
+
+.container {
+    width: 200%;
+}
+
+.songList {
+    border-style: solid;
+    height: 50px;
+    border-color: khaki;
+    background-color: transparent;
+    color: khaki;
+}

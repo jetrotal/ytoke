@@ -25,7 +25,7 @@ function onYouTubeIframeAPIReady() {
         height: vh,
         width: '100%',
         videoId: videosList[videoIndex],
-        playerVars: { 'autoplay': 1, 'controls': 0, 'enablejsapi': 1, 'origin': 'https://jetrotal.github.io' },
+        playerVars: { 'autoplay': 1, 'controls': 0, 'enablejsapi': 1, 'origin': window.location.origin },
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange

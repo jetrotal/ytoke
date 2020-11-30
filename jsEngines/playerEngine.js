@@ -16,6 +16,7 @@ var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+console.log("\n" + window.location.host + "\n")
 
 
 var player;
@@ -25,7 +26,7 @@ function onYouTubeIframeAPIReady() {
         height: vh,
         width: '100%',
         videoId: videosList[videoIndex],
-        playerVars: { 'autoplay': 1, 'controls': 0, 'enablejsapi': 1, 'origin': window.location.origin },
+        playerVars: { 'autoplay': 1, 'controls': 0, 'enablejsapi': 1, 'origin': window.location.host },
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange

@@ -10,6 +10,7 @@ var videosParam = url.searchParams.get("v");
 var videosList = videosParam.split('@@@');
 var videoIndex = url.searchParams.get("i");
 
+
 var tag = document.createElement('script');
 
 tag.src = "https://www.youtube.com/iframe_api";
@@ -24,7 +25,7 @@ function onYouTubeIframeAPIReady() {
         height: vh,
         width: '100%',
         videoId: videosList[videoIndex],
-        playerVars: { 'autoplay': 1, 'controls': 0, 'enablejsapi': 1 },
+        playerVars: { 'autoplay': 1, 'controls': 0, 'enablejsapi': 1, 'origin': 'https://jetrotal.github.io' },
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange

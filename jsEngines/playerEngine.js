@@ -1,6 +1,6 @@
 document.getElementById("player").style.opacity = "0";
-const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
-const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
+//const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+//const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 
 var url_string = window.location.href
 var url = new URL(url_string);
@@ -16,14 +16,14 @@ var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-console.log("HOST TIME \n" + window.location.host + "\n")
+
 
 
 var player;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
-        height: vh,
+        height: '100%', //vh,
         width: '100%',
         videoId: videosList[videoIndex],
         playerVars: { 'autoplay': 1, 'controls': 0, 'enablejsapi': 1, 'origin': window.location.host },

@@ -1,3 +1,6 @@
+var searchURL = "/api/v1/search?fields=videoId&q=";
+var searchTerms = 'karaoke (karaoke OR lyrics OR SingAlong OR letsSing OR videoke) -cover';
+
 var engines = [
     "https://invidious.snopyta.org"
     "https://yewtu.be",
@@ -23,5 +26,3 @@ var engines = [
 
 
 ];
-var searchURL = "/api/v1/search?fields=videoId&q=";
-var searchTerms = 'karaoke (karaoke OR lyrics OR SingAlong OR letsSing OR videoke) -cover';

@@ -52,7 +52,6 @@ $(document).ready(function() {
         }
 
 
-        var searchURL = "/api/v1/search?fields=videoId&q=";
 
         var nameValue = searchURL +
             document.getElementById("bandInput").value +

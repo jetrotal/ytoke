@@ -64,7 +64,7 @@ $(document).ready(function() {
 
         async function checkEngine(engine, i) {
 
-            engine = "https://cors-anywhere.herokuapp.com/" + engine; // CORS Permission Issues. I don't like this fix.
+            //engine = "https://cors-anywhere.herokuapp.com/" + engine; // CORS Permission Issues. I don't like this fix.
 
             const response = await fetch(engine);
             CSEjson = await response.json();

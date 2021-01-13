@@ -53,7 +53,8 @@ $(document).ready(function() {
 
 
 
-        var nameValue = document.getElementById("bandInput").value +
+        var nameValue = searchURL +
+            document.getElementById("bandInput").value +
             document.getElementById("songInput").value +
             searchTerms;
 
@@ -76,7 +77,9 @@ $(document).ready(function() {
         for (i = 0; i < engines.length; i++) {
             try {
                 await checkEngine(engines[i] + nameValue, i);
-            } catch (e) { CSE = "timeout" }
+            } catch (e) {
+                if (i == engines.length) { CSE = "timeout" } else { continue }
+            }
             console.log("Search Engine " + i + ": " + CSE);
 
             if (CSE != "error") {

@@ -78,7 +78,7 @@ $(document).ready(function() {
             try {
                 await checkEngine(engines[i] + nameValue, i);
             } catch (e) {
-                if (i == engines.length) { CSE = "timeout" } else { continue }
+                if (i == engines.length) { CSE = "timeout" } else { console.log("Search Engine " + i + ": FAIL"); continue }
             }
             console.log("Search Engine " + i + ": " + CSE);
 

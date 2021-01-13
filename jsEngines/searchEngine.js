@@ -1,8 +1,5 @@
-var searchURL = "/api/v1/search?fields=videoId&q=";
-var searchTerms = 'karaoke (karaoke OR lyrics OR SingAlong OR letsSing OR videoke) -cover';
-
 var engines = [
-    "https://invidious.snopyta.org"
+    "https://invidious.snopyta.org",
     "https://yewtu.be",
     "https://invidious.tube",
     "https://invidious.xyz",
@@ -13,7 +10,7 @@ var engines = [
     "https://invidiou.site",
     "https://vid.mint.lgbt",
     "https://invidious.site",
-    "https://invidious.mservice.ru.com",
+    "https://invidious.mservice.ru.com"
 
 
     /* "https://www.googleapis.com/customsearch/v1/siterestrict?key=AIzaSyA3v-UnPQ3vAkiTL7KNze2Iw0sfnzVrjcw&cx=d991f53b08f215b5d&fields=items.link&q=",
@@ -26,3 +23,5 @@ var engines = [
 
 
 ];
+searchURL = "/api/v1/search?fields=videoId&q=";
+searchTerms = 'karaoke (karaoke OR lyrics OR SingAlong OR letsSing OR videoke) -cover';

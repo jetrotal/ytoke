@@ -53,8 +53,7 @@ $(document).ready(function() {
 
 
 
-        var nameValue = searchURL +
-            document.getElementById("bandInput").value +
+        var nameValue = document.getElementById("bandInput").value +
             document.getElementById("songInput").value +
             searchTerms;
 
@@ -64,9 +63,6 @@ $(document).ready(function() {
         var CSE = "";
 
         async function checkEngine(engine, i) {
-
-            //engine = "https://cors-anywhere.herokuapp.com/" + engine; // CORS Permission Issues. I don't like this fix.
-
             const response = await fetch(engine);
             CSEjson = await response.json();
             CSE = await "" + Object.keys(CSEjson)[0];
@@ -76,11 +72,11 @@ $(document).ready(function() {
 
         for (i = 0; i < engines.length; i++) {
             try {
-                await checkEngine(engines[i] + nameValue, i);
-            } catch (e) {
-                if (i == engines.length) { CSE = "timeout" } else { console.log("Search Engine " + i + ": FAIL"); continue }
-            }
+                console.log(engines[i] + searchURL + nameValue);
+                await checkEngine(engines[i] + searchURL + nameValue, i);
+            } catch (e) { if (i == engines.length) { CSE = "timeout" } else { console.log("Search Engine " + i + ": FAIL"); continue } }
             console.log("Search Engine " + i + ": " + CSE);
+            if (CSE == "undefined" && i != engines.length) continue;
 
             if (CSE != "error") {
                 console.log("JSON " + JSON.stringify(CSEjson));

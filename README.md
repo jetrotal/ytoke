@@ -5,6 +5,6 @@ A Karaoke Player that Uses Youtube URLs.
 
 
 # Known Issues:
-- Huge Delay on the Microphone Audio
-- Very Short Music download limit. 
+- Microphone Playback is OFF. ( Chrome has a Huge Delay on the Microphone Audio )
+- Song Search depends on Invidious API. Sometimes the search service goes offline.
 - Playlist not working yet.

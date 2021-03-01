@@ -53,8 +53,8 @@ $(document).ready(function() {
 
 
 
-        var nameValue = document.getElementById("bandInput").value + " " +
-            document.getElementById("songInput").value +
+        var nameValue = (document.getElementById("bandInput").value + " " +
+                document.getElementById("songInput").value).replace(/  +/g, '.') +
             searchTerms;
 
         iframe.contentWindow.location.replace(searchStatus);

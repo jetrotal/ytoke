@@ -24,4 +24,4 @@ var engines = [
 
 ];
 searchURL = "/api/v1/search?fields=videoId&q=";
-searchTerms = 'karaoke (karaoke OR lyrics OR SingAlong OR letsSing OR videoke) -cover';
+searchTerms = ' karaoke (karaoke OR lyrics OR SingAlong OR letsSing OR videoke) -cover';

@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 
 
-        var nameValue = document.getElementById("bandInput").value +
+        var nameValue = document.getElementById("bandInput").value + " " +
             document.getElementById("songInput").value +
             searchTerms;
 

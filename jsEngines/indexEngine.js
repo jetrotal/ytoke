@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 
         var nameValue = (document.getElementById("bandInput").value + " " +
-                document.getElementById("songInput").value).replace(/\s{2,}/g, '.') +
+                document.getElementById("songInput").value).replace(/\s{2,}/g, ' ').replace(/[ \t\r]+/g, ".") +
             searchTerms;
 
         iframe.contentWindow.location.replace(searchStatus);

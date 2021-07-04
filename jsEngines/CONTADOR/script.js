@@ -1,6 +1,24 @@
 TweenLite.defaultEase = Expo.easeOut;
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+}
 
-initTimer("16:00"); // other ways --> "0:15" "03:5" "5:2"
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+        }
+    return urlparameter;
+}
+
+var timeValue = parseInt(getUrlParam('timeValue',15));
+timeValue = timeValue+1;
+
+initTimer(""+timeValue+":00"); // other ways --> "0:15" "03:5" "5:2"
 
 var reloadBtn = document.querySelector('.reload');
 var timerEl = document.querySelector('.timer');

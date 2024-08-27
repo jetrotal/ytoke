@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Karaoke Search and Play</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        #searchForm {
+            margin-bottom: 20px;
+        }
+        
+        #results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .video-item {
+            cursor: pointer;
+        }
+        
+        .video-item img {
+            width: 100%;
+            height: auto;
+        }
+        
+        #player {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>YouTube Karaoke Search and Play</h1>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Enter search term" required>
+        <button type="submit">Search</button>
+    </form>
+    <div id="results"></div>
+    <div id="player"></div>
+
+    <script>
+        const INVIDIOUS_INSTANCE = 'https://invidious.snopyta.org'; // You can change this to any Invidious instance
+        const EXTRA_SEARCH_TERMS = ' (karaoke OR videoke OR Sing.Along OR let\'s.Sing OR SingAlong OR letsSing OR lyrics)';
+
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+        const resultsDiv = document.getElementById('results');
+        const playerDiv = document.getElementById('player');
+
+        searchForm.addEventListener('submit', async(e) => {
+            e.preventDefault();
+            const query = searchInput.value + EXTRA_SEARCH_TERMS;
+            const videos = await searchVideos(query);
+            displayResults(videos);
+        });
+
+        async function searchVideos(query) {
+            const url = `${INVIDIOUS_INSTANCE}/api/v1/search?q=${encodeURIComponent(query)}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        }
+
+        function displayResults(videos) {
+            resultsDiv.innerHTML = '';
+            videos.forEach(video => {
+                const videoItem = document.createElement('div');
+                videoItem.className = 'video-item';
+                videoItem.innerHTML = `
+                    <img src="${video.thumbnails[0].url}" alt="${video.title}">
+                    <p>${video.title}</p>
+                `;
+                videoItem.addEventListener('click', () => playVideo(video.videoId));
+                resultsDiv.appendChild(videoItem);
+            });
+        }
+
+        function playVideo(videoId) {
+            playerDiv.innerHTML = `
+                <iframe width="560" height="315" 
+                        src="${INVIDIOUS_INSTANCE}/embed/${videoId}" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                </iframe>
+            `;
+        }
+    </script>
+</body>
+
+</html>
